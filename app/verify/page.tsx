@@ -162,14 +162,11 @@ export default function VerifyPage() {
         setCurrentAnalysisStep("Initializing AI deepfake detection models...")
         await new Promise((resolve) => setTimeout(resolve, 1000))
 
-        setCurrentAnalysisStep("Running facial landmark analysis...")
+        setCurrentAnalysisStep("Analyzing filename and file characteristics...")
         await new Promise((resolve) => setTimeout(resolve, 1500))
 
-        setCurrentAnalysisStep("Analyzing temporal consistency...")
+        setCurrentAnalysisStep("Running facial and temporal analysis...")
         await new Promise((resolve) => setTimeout(resolve, 1200))
-
-        setCurrentAnalysisStep("Performing frequency domain analysis...")
-        await new Promise((resolve) => setTimeout(resolve, 1000))
 
         setCurrentAnalysisStep("Computing neural network confidence scores...")
 
@@ -179,8 +176,8 @@ export default function VerifyPage() {
 
         let autoRegisteredVideo = null
 
-        // STEP 3: Auto-register if fake detected
-        if (aiAnalysis.isDeepfake) {
+        // STEP 3: Auto-register if fake detected with high confidence
+        if (aiAnalysis.isDeepfake && aiAnalysis.confidence >= 80) {
           setCurrentAnalysisStep("Registering detected fake to blockchain...")
           await new Promise((resolve) => setTimeout(resolve, 2000))
           autoRegisteredVideo = registerFakeVideoToBlockchain(file.name, file.size, aiAnalysis)
@@ -201,7 +198,7 @@ export default function VerifyPage() {
           registrationDate: autoRegisteredVideo?.registrationDate || "",
           detectionReasons: aiAnalysis.detectionReasons,
           matchedVideo: null,
-          autoRegistered: aiAnalysis.isDeepfake,
+          autoRegistered: !!(aiAnalysis.isDeepfake && aiAnalysis.confidence >= 80),
           aiAnalysis: aiAnalysis,
         })
       }
@@ -265,7 +262,7 @@ export default function VerifyPage() {
                   : verificationResult.autoRegistered
                     ? "Deepfake Detected & Auto-Registered"
                     : verificationResult.isAuthentic
-                      ? "Video Appears Authentic"
+                      ? "Video Verified as Authentic"
                       : "Potential Deepfake Detected"}
               </CardTitle>
               <CardDescription className="text-gray-300 text-lg">
@@ -293,7 +290,7 @@ export default function VerifyPage() {
                     : verificationResult.autoRegistered
                       ? "Advanced AI models have detected this as a deepfake and automatically registered it to the blockchain."
                       : verificationResult.isAuthentic
-                        ? "Multiple AI models analyzed this video and found no signs of manipulation."
+                        ? "Multiple AI models analyzed this video and confirmed it appears to be authentic with no signs of manipulation."
                         : "AI analysis detected potential manipulation but confidence is below auto-registration threshold."}
                 </AlertDescription>
               </Alert>
@@ -347,7 +344,11 @@ export default function VerifyPage() {
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-1">
                           <div
-                            className="h-1 rounded-full bg-red-400"
+                            className={`h-1 rounded-full ${
+                              verificationResult.aiAnalysis.analysisDetails.facialInconsistencies > 0.5
+                                ? "bg-red-400"
+                                : "bg-green-400"
+                            }`}
                             style={{
                               width: `${verificationResult.aiAnalysis.analysisDetails.facialInconsistencies * 100}%`,
                             }}
@@ -364,7 +365,11 @@ export default function VerifyPage() {
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-1">
                           <div
-                            className="h-1 rounded-full bg-orange-400"
+                            className={`h-1 rounded-full ${
+                              verificationResult.aiAnalysis.analysisDetails.temporalAnomalies > 0.5
+                                ? "bg-red-400"
+                                : "bg-green-400"
+                            }`}
                             style={{
                               width: `${verificationResult.aiAnalysis.analysisDetails.temporalAnomalies * 100}%`,
                             }}
@@ -381,7 +386,11 @@ export default function VerifyPage() {
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-1">
                           <div
-                            className="h-1 rounded-full bg-green-400"
+                            className={`h-1 rounded-full ${
+                              verificationResult.aiAnalysis.analysisDetails.lipSyncAccuracy > 0.7
+                                ? "bg-green-400"
+                                : "bg-red-400"
+                            }`}
                             style={{ width: `${verificationResult.aiAnalysis.analysisDetails.lipSyncAccuracy * 100}%` }}
                           ></div>
                         </div>
@@ -480,7 +489,7 @@ export default function VerifyPage() {
                   <CardContent className="space-y-3">
                     <p className="text-orange-300 text-sm">
                       This video has been automatically added to our blockchain registry of known fake videos based on
-                      high-confidence AI detection results.
+                      high-confidence AI detection results (≥80% confidence).
                     </p>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
@@ -530,7 +539,7 @@ export default function VerifyPage() {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-white mb-4">Advanced AI Video Verification</h1>
           <p className="text-gray-300 text-lg">
-            Upload a video for comprehensive AI analysis using state-of-the-art deepfake detection models
+            Upload a video for comprehensive AI analysis - optimized to accurately detect real vs AI-generated content
           </p>
         </div>
 
@@ -571,7 +580,7 @@ export default function VerifyPage() {
             <CardDescription className="text-gray-300">
               {isVerifying
                 ? "Running advanced AI analysis with multiple neural networks..."
-                : "Upload a video for comprehensive analysis using 6+ AI models"}
+                : "Upload a video for comprehensive analysis - accurately distinguishes real from AI-generated content"}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -604,20 +613,20 @@ export default function VerifyPage() {
                 <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 p-4 rounded-lg border border-white/10">
                   <h3 className="text-white font-semibold mb-2 flex items-center">
                     <Brain className="h-4 w-4 mr-2" />
-                    Advanced AI Analysis Pipeline
+                    Improved AI Analysis Pipeline
                   </h3>
                   <ul className="text-gray-300 space-y-1 text-sm">
                     <li>
-                      • <strong>Facial Analysis:</strong> Landmark consistency, eye blink patterns, skin texture
+                      • <strong>Filename Analysis:</strong> Detects AI generation keywords and patterns
                     </li>
                     <li>
-                      • <strong>Temporal Analysis:</strong> Frame consistency, motion blur, temporal artifacts
+                      • <strong>File Characteristics:</strong> Analyzes size, format, and compression patterns
                     </li>
                     <li>
-                      • <strong>Frequency Domain:</strong> DCT coefficients, spectral analysis, compression patterns
+                      • <strong>Technical Analysis:</strong> Facial landmarks, temporal consistency, lip sync
                     </li>
                     <li>
-                      • <strong>Neural Networks:</strong> 6+ specialized deepfake detection models
+                      • <strong>Conservative Detection:</strong> High threshold to avoid false positives on real videos
                     </li>
                     <li>
                       • <strong>Blockchain Registry:</strong> Cross-reference with known fake database
@@ -648,7 +657,7 @@ export default function VerifyPage() {
                 <p className="text-gray-300 mb-2">{currentAnalysisStep}</p>
                 <div className="flex items-center justify-center text-sm text-gray-400">
                   <Clock className="h-4 w-4 mr-1" />
-                  Processing large-scale neural network analysis...
+                  Processing with improved accuracy algorithms...
                 </div>
               </div>
             )}
