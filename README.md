@@ -194,7 +194,7 @@ VideoAuthChain takes security seriously. Please report vulnerabilities to securi
 ---
 
 ## Team 
-Atharv Kumar (Leader)
-Twinkle Tomar
-Dev Giri 
+Atharv Kumar (Leader)<br>
+Twinkle Tomar<br>
+Dev Giri <br>
 Vidha 
