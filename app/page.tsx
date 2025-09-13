@@ -12,7 +12,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Shield className="h-8 w-8 text-purple-400" />
-            <span className="text-2xl font-bold text-white">VideoAuthChain</span>
+            <span className="text-2xl font-bold text-white">Spam Shield</span>
           </div>
           <nav className="hidden md:flex items-center space-x-6">
             <Link href="#features" className="text-gray-300 hover:text-white transition-colors">
@@ -50,7 +50,7 @@ export default function HomePage() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"> Truth</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            VideoAuthChain combines blockchain technology and AI to detect deepfakes and verify video authenticity.
+            Spam Shield combines blockchain technology and AI to detect deepfakes and verify video authenticity.
             Ensure tamper-proof verification and protect against misinformation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

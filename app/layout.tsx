@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "VideoAuthChain - AI Deepfake Detection & Video Verification",
+  title: "Spam Shield - AI Deepfake Detection & Video Verification",
   description:
     "Professional AI-powered platform for detecting deepfakes and verifying video authenticity using blockchain technology and advanced neural networks.",
   keywords: "deepfake detection, AI, blockchain, video verification, authenticity, neural networks, web3",
