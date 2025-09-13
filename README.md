@@ -4,34 +4,34 @@
 
 VideoAuthChain combines cutting-edge artificial intelligence with blockchain technology to detect deepfakes and verify video authenticity. Our platform uses multiple neural network models and advanced analysis techniques to provide reliable, tamper-proof verification.
 
-## 🚀 Features
+## Features
 
-### 🧠 Advanced AI Analysis
+### Advanced AI Analysis
 - **6+ Neural Network Models**: FaceForensics++, DFDCNet, CelebDF-Detector, XceptionNet, EfficientNet-B4, ResNet50-Deepfake
 - **Frame-by-Frame Analysis**: Comprehensive facial distortion detection
 - **Biometric Indicators**: Eye blink patterns, skin texture analysis, lighting consistency
 - **Professional Scoring**: Weighted confidence system (0.0-1.0 scale)
 - **Conservative Detection**: Minimizes false positives on authentic content
 
-### 🔗 Blockchain Integration
+### Blockchain Integration
 - **Immutable Registry**: Permanent record of known fake videos
 - **Smart Contracts**: Ethereum/Polygon-based verification system
 - **Auto-Registration**: High-confidence fakes automatically added to blockchain
 - **Tamper-Proof**: Cryptographic hashes ensure data integrity
 
-### 📊 Comprehensive Dashboard
+### Comprehensive Dashboard
 - **Analytics Overview**: Real-time statistics and trends
 - **Verification History**: Complete audit trail of all analyses
 - **Fake Registry**: Blockchain-verified database of known deepfakes
 - **Performance Metrics**: Detection accuracy and processing times
 
-### 🎨 Modern UI/UX
+### Modern UI/UX
 - **Responsive Design**: Works seamlessly on all devices
 - **Glassmorphism**: Modern, professional interface
 - **Real-time Updates**: Live progress tracking during analysis
 - **Accessibility**: WCAG compliant design
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Frontend**: Next.js 15, React 19, TypeScript
 - **Styling**: Tailwind CSS, shadcn/ui components
@@ -40,7 +40,7 @@ VideoAuthChain combines cutting-edge artificial intelligence with blockchain tec
 - **Storage**: IPFS for decentralized file storage
 - **Database**: LocalStorage (demo), extensible to PostgreSQL/MongoDB
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js 18+ 
@@ -74,7 +74,7 @@ VideoAuthChain combines cutting-edge artificial intelligence with blockchain tec
    http://localhost:3000
    \`\`\`
 
-## 📖 Usage
+## Usage
 
 ### Video Verification
 1. Navigate to the **Verify** page
@@ -94,7 +94,7 @@ VideoAuthChain combines cutting-edge artificial intelligence with blockchain tec
 3. Browse blockchain fake registry
 4. Check verification history
 
-## 🧠 AI Detection Pipeline
+## AI Detection Pipeline
 
 ### Stage 1: Blockchain Registry Check
 - Cross-reference with known fake database
@@ -148,7 +148,7 @@ npm run deploy:polygon
 npm run verify:contracts
 \`\`\`
 
-## 📊 Performance Metrics
+## Performance Metrics
 
 - **Detection Accuracy**: 94%+ on standard benchmarks
 - **Processing Speed**: 3-10 seconds per video
@@ -156,7 +156,7 @@ npm run verify:contracts
 - **Supported Formats**: MP4, AVI, MOV, WebM
 - **Max File Size**: 100MB per upload
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
@@ -167,22 +167,22 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 4. Add tests for new functionality
 5. Submit a pull request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🛡️ Security
+##  Security
 
 VideoAuthChain takes security seriously. Please report vulnerabilities to security@videoauthchain.com.
 
-## 📞 Support
+## Support
 
 - **Documentation**: [docs.videoauthchain.com](https://docs.videoauthchain.com)
 - **Discord**: [Join our community](https://discord.gg/videoauthchain)
 - **Email**: support@videoauthchain.com
 - **Issues**: [GitHub Issues](https://github.com/yourusername/videoauthchain/issues)
 
-## 🌟 Roadmap
+## Roadmap
 
 - [ ] Real-time video stream analysis
 - [ ] Mobile app (iOS/Android)
@@ -193,6 +193,8 @@ VideoAuthChain takes security seriously. Please report vulnerabilities to securi
 
 ---
 
-**Built with ❤️ by the VideoAuthChain Team**
-
-*Protecting digital truth through AI and blockchain technology*
+## Team 
+Atharv Kumar (Leader)<br>
+Twinkle Tomar<br>
+Dev Giri <br>
+Vidha 
